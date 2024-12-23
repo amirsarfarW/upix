@@ -1,0 +1,25 @@
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation
+
+1.
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+2.
+sudo apt-get update
+
+3.
+sudo apt-get install -y nvidia-container-toolkit
+
+4.
+sudo apt install ubuntu-drivers-common
+
+5.
+sudo lspci | grep -i vga
+
+6.
+sudo ubuntu-drivers devices
+
+7.
+sudo apt install -y nvidia-driver-535
