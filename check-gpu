@@ -23,3 +23,25 @@ sudo ubuntu-drivers devices
 
 7.
 sudo apt install -y nvidia-driver-535
+
+
+bench1:
+pip install tensorflow
+git clone https://github.com/tensorflow/benchmarks.git
+cd benchmarks/scripts/tf_cnn_benchmarks
+python tf_cnn_benchmarks.py --num_gpus=1 --batch_size=32 --model=resnet50
+
+bench2:
+pip install torch torchvision
+
+import torch
+import time
+
+# Allocate memory on the GPU
+tensor = torch.randn(10000, 10000, device='cuda')
+
+# Perform matrix multiplication repeatedly
+start_time = time.time()
+for _ in range(100):
+    tensor = tensor @ tensor
+print(f"Time taken: {time.time() - start_time} seconds")
