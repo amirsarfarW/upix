@@ -32,6 +32,9 @@ sudo lspci | grep -i vga
 sudo ubuntu-drivers devices
 
 7.
+sudo ubuntu-drivers autoinstall
+
+8.
 sudo apt install -y nvidia-driver-535
 
 
